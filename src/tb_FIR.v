@@ -69,14 +69,28 @@ module tb_FIR;
     initial begin
 		$dumpfile("tb_FIR.vcd");
 		$dumpvars;
+		
+		s_axis_fir_tdata <= 16'd0; #1000
+		s_axis_fir_tdata <= 16'h8000; #1000//ffff
+		s_axis_fir_tdata <= 16'd0; #1000
+		s_axis_fir_tdata <= 16'h8000; #1000//ffff
+		s_axis_fir_tdata <= 16'd0; #1000
+		s_axis_fir_tdata <= 16'h8000; #1000//ffff
+		s_axis_fir_tdata <= 16'd0; #1000
+		s_axis_fir_tdata <= 16'h8000; #1000//ffff
+		s_axis_fir_tdata <= 16'd0; #1000
+		s_axis_fir_tdata <= 16'h8000; #1000//ffff
+		s_axis_fir_tdata <= 16'd0; #1000
+		s_axis_fir_tdata <= 16'h8000; #1000//ffff
 
 		/* verilator lint_off STMTDLY */
 		//#50 rst_i = 1'b0; // deassert reset
-		#10000 $finish; // finish
+		#100000 $finish; // finish
 		/* verilator lint_on STMTDLY */
 	end
     
     /* This state machine generates a 200kHz sinusoid. */
+    /*
     always @ (posedge clk or posedge reset)
         begin
             if (reset == 1'b0)
@@ -226,5 +240,6 @@ module tb_FIR;
                     endcase
                 end
         end
+        */
     
 endmodule
