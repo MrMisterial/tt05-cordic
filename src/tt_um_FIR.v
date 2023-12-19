@@ -29,7 +29,15 @@ module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
     // if external inputs are set then use that as compare count
     // otherwise use the hard coded MAX_COUNT
     wire [23:0] compare = ui_in == 0 ? MAX_COUNT: {6'b0, ui_in[7:0], 10'b0};
-
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
     always @(posedge clk) begin
         // if reset, set counter to 0
         if (reset) begin
@@ -53,6 +61,7 @@ module tt_um_seven_segment_seconds #( parameter MAX_COUNT = 24'd10_000_000 ) (
                 second_counter <= second_counter + 1'b1;
         end
     end
+    */
 
     // instantiate segment display
     seg7 seg7(.counter(digit), .segments(led_out));
